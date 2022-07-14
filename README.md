@@ -1,4 +1,4 @@
-# formation
+# RecognitionCortex
 # How to contribute to this repository 
 Add remote upstream <br>
 ```git remote add upstream https://github.com/jawherr/formation.git```<br>
