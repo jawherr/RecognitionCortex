@@ -1,15 +1,16 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.neocortex.recognitioncortex.entities.Badge;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
 import com.neocortex.recognitioncortex.repository.BadgeRepository;
+import com.neocortex.recognitioncortex.service.BadgeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class BadgeServiceImpl implements BadgeService{
+public class BadgeServiceImpl implements BadgeService {
     @Autowired
     BadgeRepository badgeRepository;
 

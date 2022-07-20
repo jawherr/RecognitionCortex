@@ -2,7 +2,7 @@ package com.neocortex.recognitioncortex.controller.user;
 
 import com.neocortex.recognitioncortex.entities.Calendrier;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
-import com.neocortex.recognitioncortex.service.CalendrierServiceImpl;
+import com.neocortex.recognitioncortex.service.serviceimpl.CalendrierServiceImpl;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

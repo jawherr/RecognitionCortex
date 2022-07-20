@@ -1,53 +1,54 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
-import com.neocortex.recognitioncortex.entities.Monnaie;
+import com.neocortex.recognitioncortex.entities.Solde;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
-import com.neocortex.recognitioncortex.repository.MonnaieRepository;
+import com.neocortex.recognitioncortex.repository.SoldeRepository;
+import com.neocortex.recognitioncortex.service.SoldeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class MonnaieServiceImpl implements MonnaieService{
+public class SoldeServiceImpl implements SoldeService {
     @Autowired
-    MonnaieRepository monnaieRepository;
+    SoldeRepository soldeRepository;
 
     @Transactional
     @Override
-    public MessageResponse save(Monnaie monnaie) {
-        monnaieRepository.save(monnaie);
+    public MessageResponse save(Solde solde) {
+        soldeRepository.save(solde);
         return new MessageResponse(true,"Succès","Opération réalisée avec succès.");
     }
 
 
     @Transactional
     @Override
-    public MessageResponse update(Monnaie monnaie) {
-        boolean existe = monnaieRepository.existsById(monnaie.getId());
-        monnaieRepository.save(monnaie);
+    public MessageResponse update(Solde solde) {
+        boolean existe = soldeRepository.existsById(solde.getId());
+        soldeRepository.save(solde);
         return new MessageResponse(true,"Succès","Opération réalisée avec succès.");
     }
 
     @Transactional
     @Override
     public MessageResponse delete(Long id) {
-        Monnaie monnaie = findById(id);
-        if (monnaie==null){
+        Solde solde = findById(id);
+        if (solde==null){
             return new MessageResponse(false,"Echec","Cet enregistrement n'existe pas !");
         }
-        monnaieRepository.delete(monnaie);
+        soldeRepository.delete(solde);
         return new MessageResponse(true,"Succès", "L'enregistrement à été supprimé avec succès.");
     }
 
     @Override
-    public List<Monnaie> findAll() {
-        return monnaieRepository.findAll();
+    public List<Solde> findAll() {
+        return soldeRepository.findAll();
     }
 
     @Override
-    public Monnaie findById(Long id) {
-        Monnaie monnaie = monnaieRepository.findById(id).orElse(null);
-        return monnaie;
+    public Solde findById(Long id) {
+        Solde solde = soldeRepository.findById(id).orElse(null);
+        return solde;
     }
 }

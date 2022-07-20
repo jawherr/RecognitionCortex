@@ -1,8 +1,9 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.neocortex.recognitioncortex.entities.Dossier;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
 import com.neocortex.recognitioncortex.repository.DossierRepository;
+import com.neocortex.recognitioncortex.service.DossierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class DossierServiceImpl implements DossierService{
+public class DossierServiceImpl implements DossierService {
     @Autowired
     DossierRepository dossierRepository;
 

@@ -2,7 +2,7 @@ package com.neocortex.recognitioncortex.security;
 
 import com.neocortex.recognitioncortex.security.jwt.AuthEntryPointJwt;
 import com.neocortex.recognitioncortex.security.jwt.AuthTokenFilter;
-import com.neocortex.recognitioncortex.service.UtilisateurDetailsServiceImpl;
+import com.neocortex.recognitioncortex.service.serviceimpl.UtilisateurDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

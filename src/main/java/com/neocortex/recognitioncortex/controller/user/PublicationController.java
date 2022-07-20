@@ -2,7 +2,7 @@ package com.neocortex.recognitioncortex.controller.user;
 
 import com.neocortex.recognitioncortex.entities.Publication;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
-import com.neocortex.recognitioncortex.service.PublicationServiceImpl;
+import com.neocortex.recognitioncortex.service.serviceimpl.PublicationServiceImpl;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

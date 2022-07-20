@@ -2,7 +2,7 @@ package com.neocortex.recognitioncortex.controller.user;
 
 import com.neocortex.recognitioncortex.entities.Commentaire;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
-import com.neocortex.recognitioncortex.service.CommentaireServiceImpl;
+import com.neocortex.recognitioncortex.service.serviceimpl.CommentaireServiceImpl;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -2,7 +2,7 @@ package com.neocortex.recognitioncortex.controller.admin;
 
 import com.neocortex.recognitioncortex.entities.Dossier;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
-import com.neocortex.recognitioncortex.service.DossierServiceImpl;
+import com.neocortex.recognitioncortex.service.serviceimpl.DossierServiceImpl;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

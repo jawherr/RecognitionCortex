@@ -1,15 +1,16 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.neocortex.recognitioncortex.entities.Cadeaux;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
 import com.neocortex.recognitioncortex.repository.CadeauxRepository;
+import com.neocortex.recognitioncortex.service.CadeauxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class CadeauxServiceImpl implements CadeauxService{
+public class CadeauxServiceImpl implements CadeauxService {
     @Autowired
     CadeauxRepository cadeauxRepository;
 

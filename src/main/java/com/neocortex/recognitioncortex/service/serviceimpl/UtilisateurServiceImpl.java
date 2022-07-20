@@ -1,15 +1,16 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.neocortex.recognitioncortex.entities.Utilisateur;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
 import com.neocortex.recognitioncortex.repository.UtilisateurRepository;
+import com.neocortex.recognitioncortex.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class UtilisateurServiceImpl implements UtilisateurService{
+public class UtilisateurServiceImpl implements UtilisateurService {
     @Autowired
     UtilisateurRepository utilisateurRepository;
 

@@ -2,7 +2,7 @@ package com.neocortex.recognitioncortex.controller.admin;
 
 import com.neocortex.recognitioncortex.entities.Role;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
-import com.neocortex.recognitioncortex.service.RoleServiceImpl;
+import com.neocortex.recognitioncortex.service.serviceimpl.RoleServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

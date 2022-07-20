@@ -2,7 +2,7 @@ package com.neocortex.recognitioncortex.controller.user;
 
 import com.neocortex.recognitioncortex.entities.Tache;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
-import com.neocortex.recognitioncortex.service.TacheServiceImpl;
+import com.neocortex.recognitioncortex.service.serviceimpl.TacheServiceImpl;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,15 +1,16 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.neocortex.recognitioncortex.entities.Tache;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
 import com.neocortex.recognitioncortex.repository.TacheRepository;
+import com.neocortex.recognitioncortex.service.TacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class TacheServiceImpl implements TacheService{
+public class TacheServiceImpl implements TacheService {
     @Autowired
     TacheRepository tacheRepository;
 

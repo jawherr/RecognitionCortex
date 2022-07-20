@@ -1,4 +1,4 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.neocortex.recognitioncortex.entities.Utilisateur;

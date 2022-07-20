@@ -1,15 +1,16 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.neocortex.recognitioncortex.entities.Employe_speciality;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
 import com.neocortex.recognitioncortex.repository.Employe_specialityRepository;
+import com.neocortex.recognitioncortex.service.Employe_specialityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class Employe_specialityServiceImpl implements Employe_specialityService{
+public class Employe_specialityServiceImpl implements Employe_specialityService {
     @Autowired
     Employe_specialityRepository employe_specialityRepository;
 

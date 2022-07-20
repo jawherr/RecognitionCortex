@@ -1,4 +1,4 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.neocortex.recognitioncortex.entities.Utilisateur;
 import com.neocortex.recognitioncortex.repository.UtilisateurRepository;

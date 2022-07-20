@@ -11,7 +11,11 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "badges")
+@Table(name = "badges", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "nom"
+        })
+})
 public class Badge {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

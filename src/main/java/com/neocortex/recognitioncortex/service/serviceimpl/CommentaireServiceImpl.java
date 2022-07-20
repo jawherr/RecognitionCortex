@@ -1,8 +1,9 @@
-package com.neocortex.recognitioncortex.service;
+package com.neocortex.recognitioncortex.service.serviceimpl;
 
 import com.neocortex.recognitioncortex.entities.Commentaire;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
 import com.neocortex.recognitioncortex.repository.CommentaireRepository;
+import com.neocortex.recognitioncortex.service.CommentaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class CommentaireServiceImpl implements CommentaireService{
+public class CommentaireServiceImpl implements CommentaireService {
     @Autowired
     CommentaireRepository commentaireRepository;
 
