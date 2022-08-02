@@ -18,7 +18,7 @@ public class Commentaire {
     private Long id;
 
     @NotNull
-    @Column(length=50)
+    @Column(length=250)
     private String libelle;
 
     @ManyToOne

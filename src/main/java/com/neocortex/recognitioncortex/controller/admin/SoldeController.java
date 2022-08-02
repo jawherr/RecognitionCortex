@@ -33,14 +33,14 @@ public class SoldeController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message="solde enregistré")
     })
-    public MessageResponse save(@RequestBody Solde recomponse) {
-        return soldeService.save(recomponse);
+    public MessageResponse save(@RequestBody Solde Recompense) {
+        return soldeService.save(Recompense);
     }
 
     @PutMapping
-    @ApiOperation(value="mettre à jour un recomponse", notes="update recomponse")
+    @ApiOperation(value="mettre à jour un Recompense", notes="update Recompense")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message="recomponse mis à jour")
+            @ApiResponse(code = 200, message="Recompense mis à jour")
     })
     public MessageResponse update(@RequestBody Solde solde) {
         return soldeService.update(solde);

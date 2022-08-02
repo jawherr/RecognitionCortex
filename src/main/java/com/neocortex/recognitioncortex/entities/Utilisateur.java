@@ -107,7 +107,7 @@ public class Utilisateur {
     @NotNull
     @OneToMany(mappedBy="utilisateur")
     @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
-    private Collection<Recomponse> recomponses;
+    private Collection<Recompense> Recompenses;
 
     @NotNull
     @OneToMany(mappedBy="utilisateur")

@@ -24,9 +24,9 @@ public class Badge {
     @Column(unique = true,nullable = false,length = 50)
     private String nom;
 
-    @ManyToOne
     @NotNull
-    private Utilisateur image;
+    @Column(length=120)
+    private String image;
 
     @NotNull
     @Column(length=120)

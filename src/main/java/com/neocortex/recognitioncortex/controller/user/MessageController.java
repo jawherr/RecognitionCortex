@@ -13,7 +13,7 @@ import java.util.List;
 @Api
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/messagerie")
+@RequestMapping("/message")
 @PreAuthorize("hasRole('ROLE_USER')")
 public class MessageController {
 

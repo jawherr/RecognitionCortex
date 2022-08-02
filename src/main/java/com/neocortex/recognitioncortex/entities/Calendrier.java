@@ -15,7 +15,7 @@ import java.util.Date;
 @Table(name = "calendrier")
 public class Calendrier {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
@@ -28,9 +28,11 @@ public class Calendrier {
     @NotNull
     private String description;
 
-    @OneToOne(mappedBy = "calendrier")
+    @OneToOne(mappedBy = "calendrier", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
     private Utilisateur utilisateur;
 
-    @OneToOne(mappedBy = "calendrier")
+    @OneToOne(mappedBy = "calendrier", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
     private Equipe equipe;
 }

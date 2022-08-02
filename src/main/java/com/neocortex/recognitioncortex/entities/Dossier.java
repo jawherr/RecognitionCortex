@@ -30,7 +30,8 @@ public class Dossier {
     @NotNull
     private String description;
 
-    @OneToOne(mappedBy = "dossier")
+    @OneToOne(mappedBy = "dossier", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, optional = false)
     private Equipe equipe;
 
     @NotNull

@@ -39,9 +39,12 @@ public class Equipe {
     @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
     private Collection<Monnaie> monnaies;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "calendrier_id", referencedColumnName = "id")
     private Calendrier calendrier;
 
-    @OneToOne
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dossier_id", referencedColumnName = "id")
     private Dossier dossier;
 }

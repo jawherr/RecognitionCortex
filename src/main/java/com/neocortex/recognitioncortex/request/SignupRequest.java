@@ -43,7 +43,7 @@ public class SignupRequest {
     private Collection<Achat> achats;
     private Collection<Publication> publications;
     private Collection<Employe_speciality> employe_specialities;
-    private Collection<Recomponse> recomponses;
+    private Collection<Recompense> Recompenses;
     private Collection<Cadeaux> cadeaux;
     private Collection<Message> messageries;
     private Collection<Notification> notifications;
@@ -210,12 +210,12 @@ public class SignupRequest {
         this.employe_specialities = employe_specialities;
     }
 
-    public Collection<Recomponse> getRecomponses() {
-        return recomponses;
+    public Collection<Recompense> getRecompenses() {
+        return Recompenses;
     }
 
-    public void setRecomponses(Collection<Recomponse> recomponses) {
-        this.recomponses = recomponses;
+    public void setRecompenses(Collection<Recompense> Recompenses) {
+        this.Recompenses = Recompenses;
     }
 
     public Collection<Cadeaux> getCadeaux() {

@@ -11,12 +11,12 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "recomponses", uniqueConstraints = {
+@Table(name = "recompenses", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
                 "nom"
         })
 })
-public class Recomponse {
+public class Recompense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
