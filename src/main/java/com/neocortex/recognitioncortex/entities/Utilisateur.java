@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -129,6 +130,10 @@ public class Utilisateur {
     @OneToOne(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore  // fix bi-direction toString() recursion problem
     private Cart cart;
+
+    @OneToMany(mappedBy = "utilisateur")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private List<CortexAccount> cortexAccounts;
 
     public Utilisateur(String username, String password) {
         this.username = username;

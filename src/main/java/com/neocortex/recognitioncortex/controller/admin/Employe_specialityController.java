@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/employe_speciality")
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+//@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class Employe_specialityController {
         @Autowired
         private Employe_specialityServiceImpl employe_specialityService;

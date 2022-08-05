@@ -25,11 +25,6 @@ import java.util.Date;
 public class ProductInfo {
 
     @Id
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name="productId", unique=true)
     private String productId;
 
     @NotNull

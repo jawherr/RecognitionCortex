@@ -22,11 +22,13 @@ public class Recompense {
     private Long id;
 
     @NotNull
-    @Column(length=50)
     private String nom;
 
     @NotNull
-    private int valuer;
+    private String image;
+
+    @NotNull
+    private String description;
 
     //@NotNull
     //private String type;

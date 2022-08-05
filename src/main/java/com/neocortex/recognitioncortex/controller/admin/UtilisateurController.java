@@ -1,7 +1,10 @@
 package com.neocortex.recognitioncortex.controller.admin;
 
+import com.neocortex.recognitioncortex.dtos.UtilisateurDTO;
 import com.neocortex.recognitioncortex.entities.Utilisateur;
+import com.neocortex.recognitioncortex.exception.UserNotFoundException;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
+import com.neocortex.recognitioncortex.service.CortexAccountService;
 import com.neocortex.recognitioncortex.service.impl.UtilisateurServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,7 +20,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/utilisateur")
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+//@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class UtilisateurController {
     @Autowired
     private UtilisateurServiceImpl utilisateurServiceImpl;
@@ -67,4 +70,5 @@ public class UtilisateurController {
     public MessageResponse delete(@PathVariable Long code) {
         return utilisateurServiceImpl.delete(code);
     }
+
 }
