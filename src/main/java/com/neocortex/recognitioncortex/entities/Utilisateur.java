@@ -1,5 +1,6 @@
 package com.neocortex.recognitioncortex.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +9,9 @@ import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Date;
 
@@ -31,27 +34,24 @@ public class Utilisateur {
 
     @NaturalId
     @NotNull
-    @Column(length=50)
     @Email
     private String email;
 
-    @Column(length=120)
+
     @NotNull
+    @Size(min = 6, message = "Length must be more than 6")
     private String password;
 
     @NotNull
-    @Column(length=50)
     private String nom;
 
     @NotNull
-    @Column(length=50)
     private String username;
 
     @NotNull
     private Date date_naissance;
 
     @NotNull
-    @Column(length=120)
     private String address;
 
     @NotNull
@@ -60,9 +60,11 @@ public class Utilisateur {
     @NotNull
     private Date updated_at;
 
+    @NotNull
+    private String phone;
+
     private String cover_image;
 
-    @Column(length=120)
     private String brief;
 
     @ManyToMany
@@ -123,6 +125,10 @@ public class Utilisateur {
     @OneToMany(mappedBy="utilisateur")
     @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
     private Collection<Notification> notifications;
+
+    @OneToOne(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore  // fix bi-direction toString() recursion problem
+    private Cart cart;
 
     public Utilisateur(String username, String password) {
         this.username = username;

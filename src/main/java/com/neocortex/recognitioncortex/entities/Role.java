@@ -1,5 +1,6 @@
 package com.neocortex.recognitioncortex.entities;
 
+import com.neocortex.recognitioncortex.enums.ERole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

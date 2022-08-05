@@ -23,11 +23,9 @@ public class Equipe {
     private Long id;
 
     @NotNull
-    @Column(length=50)
     private String nom;
 
     @NotNull
-    @Column(length=50)
     private String objectif;
 
     @ManyToOne

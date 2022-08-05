@@ -1,7 +1,7 @@
 package com.neocortex.recognitioncortex.security.jwt;
 
 
-import com.neocortex.recognitioncortex.service.serviceimpl.UtilisateurDetailsServiceImpl;
+import com.neocortex.recognitioncortex.service.impl.UtilisateurDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -22,7 +22,6 @@ public class Calendrier {
     private Date date;
 
     @NotNull
-    @Column(length=50)
     private String objet;
 
     @NotNull

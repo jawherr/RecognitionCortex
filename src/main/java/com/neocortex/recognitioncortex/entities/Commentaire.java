@@ -18,7 +18,6 @@ public class Commentaire {
     private Long id;
 
     @NotNull
-    @Column(length=250)
     private String libelle;
 
     @ManyToOne

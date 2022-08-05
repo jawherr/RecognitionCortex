@@ -2,7 +2,7 @@ package com.neocortex.recognitioncortex.controller.admin;
 
 import com.neocortex.recognitioncortex.entities.Recompense;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
-import com.neocortex.recognitioncortex.service.serviceimpl.RecompenseServiceImpl;
+import com.neocortex.recognitioncortex.service.impl.RecompenseServiceImpl;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

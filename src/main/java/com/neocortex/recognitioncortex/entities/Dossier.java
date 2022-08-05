@@ -24,7 +24,6 @@ public class Dossier {
     private Date date;
 
     @NotNull
-    @Column(length=50)
     private String remarque;
 
     @NotNull

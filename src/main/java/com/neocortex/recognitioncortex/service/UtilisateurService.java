@@ -11,4 +11,5 @@ public interface UtilisateurService {
     public MessageResponse delete(Long code);
     public List<Utilisateur> findAll();
     public Utilisateur findByCode(Long code);
+    public Utilisateur findOne(String username);
 }

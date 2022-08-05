@@ -22,11 +22,9 @@ public class Employe_speciality {
     private Long id;
 
     @NotNull
-    @Column(length=50)
     private String titre;
 
     @NotNull
-    @Column(length=120)
     private String description;
 
     @ManyToOne

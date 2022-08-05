@@ -1,6 +1,6 @@
 package com.neocortex.recognitioncortex.controller;
 
-import com.neocortex.recognitioncortex.entities.ERole;
+import com.neocortex.recognitioncortex.enums.ERole;
 import com.neocortex.recognitioncortex.entities.Role;
 import com.neocortex.recognitioncortex.entities.Utilisateur;
 import com.neocortex.recognitioncortex.reponses.JwtResponse;
@@ -10,17 +10,21 @@ import com.neocortex.recognitioncortex.repository.UtilisateurRepository;
 import com.neocortex.recognitioncortex.request.LoginRequest;
 import com.neocortex.recognitioncortex.request.SignupRequest;
 import com.neocortex.recognitioncortex.security.jwt.JwtUtils;
-import com.neocortex.recognitioncortex.service.serviceimpl.UtilisateurDetailsImpl;
+import com.neocortex.recognitioncortex.service.UtilisateurService;
+import com.neocortex.recognitioncortex.service.impl.UtilisateurDetailsImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,6 +46,8 @@ public class AuthController {
     @Autowired
     RoleRepository roleRepository;
     @Autowired
+    UtilisateurService utilisateurService;
+    @Autowired
     PasswordEncoder encoder;
     @Autowired
     JwtUtils jwtUtils;
@@ -51,23 +57,24 @@ public class AuthController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message="utilisateur authentifié")
     })
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<JwtResponse> signin(@RequestBody LoginRequest loginRequest) {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String jwt = jwtUtils.generateJwtToken(authentication);
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            List<String> roles = userDetails.getAuthorities().stream()
+                    .map(item -> item.getAuthority())
+                    .collect(Collectors.toList());
 
-        UtilisateurDetailsImpl userDetails = (UtilisateurDetailsImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
-                .map(item -> item.getAuthority())
-                .collect(Collectors.toList());
+            Utilisateur utilisateur = utilisateurService.findOne(userDetails.getUsername());
+            return ResponseEntity.ok(new JwtResponse(jwt,
+                    utilisateur.getId(),
+                    utilisateur.getUsername(),
+                    roles));
 
-        return ResponseEntity.ok(new JwtResponse(jwt,
-                userDetails.getId(),
-                userDetails.getUsername(),
-                roles));
     }
 
 

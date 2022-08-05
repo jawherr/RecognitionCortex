@@ -1,6 +1,6 @@
 package com.neocortex.recognitioncortex.security.jwt;
 
-import com.neocortex.recognitioncortex.service.serviceimpl.UtilisateurDetailsImpl;
+import com.neocortex.recognitioncortex.service.impl.UtilisateurDetailsImpl;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
