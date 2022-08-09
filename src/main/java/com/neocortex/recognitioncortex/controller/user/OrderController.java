@@ -29,8 +29,8 @@ public class OrderController {
                                  Authentication authentication) {
         PageRequest request = PageRequest.of(page - 1, size);
         Page<Order> orderPage;
-        if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
-            orderPage = orderService.findByBuyerEmail(authentication.getName(), request);
+        if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"))) {
+            orderPage = orderService.findByBuyerUsername(authentication.getName(), request);
         } else {
             orderPage = orderService.findAll(request);
         }
@@ -41,7 +41,7 @@ public class OrderController {
     @PatchMapping("/order/cancel/{id}")
     public ResponseEntity<Order> cancel(@PathVariable("id") Long orderId, Authentication authentication) {
         Order orderMain = orderService.findOne(orderId);
-        if (!authentication.getName().equals(orderMain.getBuyerEmail()) && authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
+        if (!authentication.getName().equals(orderMain.getBuyerUsername()) && authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROE_USER"))) {
 
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
@@ -50,7 +50,7 @@ public class OrderController {
 
     @PatchMapping("/order/finish/{id}")
     public ResponseEntity<Order> finish(@PathVariable("id") Long orderId, Authentication authentication) {
-        if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"))) {
+        if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"))) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         return ResponseEntity.ok(orderService.finish(orderId));
@@ -58,7 +58,7 @@ public class OrderController {
 
     @GetMapping("/order/{id}")
     public ResponseEntity show(@PathVariable("id") Long orderId, Authentication authentication) {
-        boolean isCustomer = authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_CUSTOMER"));
+        boolean isCustomer = authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"));
         Order orderMain = orderService.findOne(orderId);
         if (isCustomer && !authentication.getName().equals(orderMain.getBuyerEmail())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();

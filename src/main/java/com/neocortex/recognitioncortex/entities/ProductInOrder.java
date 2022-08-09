@@ -16,14 +16,10 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "product_in_order", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {
-                "productName"
-        })
-})
+@Table(name = "product_in_order")
 public class ProductInOrder {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
@@ -36,37 +32,48 @@ public class ProductInOrder {
     @JsonIgnore
     private Order order;
 
+
     @NotEmpty
     private String productId;
 
-    @NotNull
-    @Column(length=50)
+    /**
+     * 名字.
+     */
+    @NotEmpty
     private String productName;
 
+    /**
+     * 描述.
+     */
     @NotNull
     private String productDescription;
 
+    /**
+     * 小图.
+     */
     private String productIcon;
 
+    /**
+     * 类目编号.
+     */
     @NotNull
     private Integer categoryType;
 
+    /**
+     * 单价.
+     */
     @NotNull
     private BigDecimal productPrice;
 
+    /**
+     * 库存.
+     */
     @Min(0)
     private Integer productStock;
 
     @Min(1)
     private Integer count;
 
-
-    //@NotNull
-    //private String type;
-
-    @ManyToOne
-    @NotNull
-    private Utilisateur utilisateur;
 
     public ProductInOrder(ProductInfo productInfo, Integer quantity) {
         this.productId = productInfo.getProductId();
@@ -111,6 +118,7 @@ public class ProductInOrder {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(super.hashCode(), id, productId, productName, productDescription, productIcon, categoryType, productPrice);
     }
 }

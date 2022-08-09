@@ -37,7 +37,7 @@ public class Order {
     private String buyerEmail;
 
     @NotEmpty
-    private String buyerName;
+    private String buyerUsername;
 
     @NotEmpty
     private String buyerPhone;
@@ -61,7 +61,7 @@ public class Order {
 
     public Order(Utilisateur buyer) {
         this.buyerEmail = buyer.getEmail();
-        this.buyerName = buyer.getNom();
+        this.buyerUsername = buyer.getUsername();
         this.buyerPhone = buyer.getPhone();
         this.buyerAddress = buyer.getAddress();
         this.orderAmount = buyer.getCart().getProducts().stream().map(item -> item.getProductPrice().multiply(new BigDecimal(item.getCount())))

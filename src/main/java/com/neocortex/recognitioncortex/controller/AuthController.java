@@ -71,7 +71,7 @@ public class AuthController {
 
             Utilisateur utilisateur = utilisateurService.findOne(userDetails.getUsername());
             return ResponseEntity.ok(new JwtResponse(jwt,
-                    utilisateur.getId(),
+                    utilisateur.getEmail(),
                     utilisateur.getUsername(),
                     roles));
 

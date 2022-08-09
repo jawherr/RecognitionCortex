@@ -20,4 +20,5 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> 
 
     @Query("select c from Utilisateur c where c.username like :kw")
     List<Utilisateur> searchUser(@Param("kw") String keyword);
+
 }

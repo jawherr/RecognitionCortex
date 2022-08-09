@@ -11,9 +11,11 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Api
@@ -49,8 +51,19 @@ public class UtilisateurController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message="utilisateur mis à jour")
     })
-    public MessageResponse update(@RequestBody Utilisateur utilisateur) {
+    public MessageResponse update(@RequestBody Utilisateur utilisateur, Principal principal) {
+        if (!principal.getName().equals(utilisateur.getUsername())) throw new IllegalArgumentException();
         return utilisateurServiceImpl.update(utilisateur);
+    }
+
+    @GetMapping("/profile/{username}")
+    public ResponseEntity<Utilisateur> getProfile(@PathVariable("username") String username, Principal principal) {
+        if (principal.getName().equals(username)) {
+            return ResponseEntity.ok(utilisateurServiceImpl.findOne(username));
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
+
     }
 
     @GetMapping("/{code}")

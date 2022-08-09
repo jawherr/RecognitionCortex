@@ -42,8 +42,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Page<Order> findByBuyerEmail(String email, Pageable pageable) {
-        return orderRepository.findAllByBuyerEmailOrderByOrderStatusAscCreateTimeDesc(email, pageable);
+    public Page<Order> findByBuyerUsername(String username, Pageable pageable) {
+        return orderRepository.findAllByBuyerUsernameOrderByOrderStatusAscCreateTimeDesc(username, pageable);
     }
 
     @Override

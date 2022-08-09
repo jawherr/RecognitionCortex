@@ -29,6 +29,9 @@ import java.util.List;
         })
 })
 public class Utilisateur {
+
+    private static final long serialVersionUID = 4887904943282174032L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

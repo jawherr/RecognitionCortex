@@ -19,10 +19,11 @@ public class Cart {
 
     @Id
     @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cartId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long cartId;
 
     @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     @JsonIgnore
 //    @JoinColumn(name = "email", referencedColumnName = "email")
     private Utilisateur utilisateur;
@@ -31,7 +32,13 @@ public class Cart {
             fetch = FetchType.LAZY, orphanRemoval = true,
             mappedBy = "cart")
     private Set<ProductInOrder> products = new HashSet<>();
-
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "cartId=" + cartId +
+                ", products=" + products +
+                '}';
+    }
     public Cart(Utilisateur utilisateur) {
         this.utilisateur  = utilisateur;
     }

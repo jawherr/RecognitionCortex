@@ -9,12 +9,11 @@ public interface OrderService {
 
     Page<Order> findByStatus(Integer status, Pageable pageable);
 
-    Page<Order> findByBuyerEmail(String email, Pageable pageable);
+    Page<Order> findByBuyerUsername(String email, Pageable pageable);
 
     Page<Order> findByBuyerPhone(String phone, Pageable pageable);
 
     Order findOne(Long orderId);
-
 
     Order finish(Long orderId);
 
