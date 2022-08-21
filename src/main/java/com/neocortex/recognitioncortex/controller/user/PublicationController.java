@@ -1,10 +1,13 @@
 package com.neocortex.recognitioncortex.controller.user;
 
+import com.neocortex.recognitioncortex.dtos.PublicationDto;
 import com.neocortex.recognitioncortex.entities.Publication;
 import com.neocortex.recognitioncortex.reponses.MessageResponse;
 import com.neocortex.recognitioncortex.service.impl.PublicationServiceImpl;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +15,7 @@ import java.util.List;
 
 @Api
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin("*")
 @RequestMapping("/publication")
 //@PreAuthorize("hasRole('ROLE_USER')")
 public class PublicationController{
@@ -63,6 +66,25 @@ public class PublicationController{
     })
     public MessageResponse delete(@PathVariable Long id) {
         return publicationService.delete(id);
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity createPost(@RequestBody PublicationDto postDto){
+
+        publicationService.createPost(postDto);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<PublicationDto>> showAllPosts(){
+        return new ResponseEntity<>(publicationService.showAllPosts(),HttpStatus.OK);
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<PublicationDto> getSinglePost(@PathVariable @RequestBody Long id){
+
+        return  new ResponseEntity<>(publicationService.readSinglePost(id),HttpStatus.OK);
     }
 }
 

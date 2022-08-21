@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
+import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,6 +16,6 @@ public class PublicationDto {
     private String content;
     private String title;
     private String username;
-    private Instant createdOn;
+    private Date createdOn;
 
 }

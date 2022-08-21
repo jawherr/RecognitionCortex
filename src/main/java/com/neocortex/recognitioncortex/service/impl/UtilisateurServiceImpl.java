@@ -8,12 +8,16 @@ import com.neocortex.recognitioncortex.repository.UtilisateurRepository;
 import com.neocortex.recognitioncortex.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @DependsOn("passwordEncoder")
 public class UtilisateurServiceImpl implements UtilisateurService {
@@ -81,6 +85,14 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public List<Utilisateur> findAll() {
         return utilisateurRepository.findAll();
+    }
+
+    public Optional<UtilisateurDetailsImpl> getCurrentUser() {
+
+        UtilisateurDetailsImpl principal = (UtilisateurDetailsImpl)
+                SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        return Optional.of(principal);
     }
 
     @Transactional

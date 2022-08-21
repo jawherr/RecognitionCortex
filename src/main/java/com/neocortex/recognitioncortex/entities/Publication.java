@@ -1,6 +1,5 @@
 package com.neocortex.recognitioncortex.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.Instant;
-import java.util.Collection;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -35,10 +33,10 @@ public class Publication {
     private String content;
 
     @Column(name = "createdOn")
-    private Instant createdOn;
+    private Date createdOn;
 
     @Column(name = "updatedOn")
-    private Instant updatedOn;
+    private Date updatedOn;
 
     @Column(name = "username", length = 500)
     @NotEmpty
