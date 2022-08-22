@@ -58,11 +58,8 @@ public class UtilisateurController {
 
     @GetMapping("/profile/{username}")
     public ResponseEntity<Utilisateur> getProfile(@PathVariable("username") String username, Principal principal) {
-        if (principal.getName().equals(username)) {
+
             return ResponseEntity.ok(utilisateurServiceImpl.findOne(username));
-        } else {
-            return ResponseEntity.badRequest().build();
-        }
 
     }
 
