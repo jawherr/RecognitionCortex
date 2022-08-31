@@ -17,5 +17,9 @@ public class PublicationDto {
     private String title;
     private String username;
     private Date createdOn;
+    private Date updatedOn;
+    private int nb_like;
+    private int nb_commenter;
+    private int nb_partager;
 
 }

@@ -51,8 +51,7 @@ public class UtilisateurController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message="utilisateur mis à jour")
     })
-    public MessageResponse update(@RequestBody Utilisateur utilisateur, Principal principal) {
-        if (!principal.getName().equals(utilisateur.getUsername())) throw new IllegalArgumentException();
+    public MessageResponse update(@RequestBody Utilisateur utilisateur) {
         return utilisateurServiceImpl.update(utilisateur);
     }
 

@@ -38,6 +38,15 @@ public class Publication {
     @Column(name = "updatedOn")
     private Date updatedOn;
 
+    @NotNull
+    private int nb_like;
+
+    @NotNull
+    private int nb_commenter;
+
+    @NotNull
+    private int nb_partager;
+
     @Column(name = "username", length = 500)
     @NotEmpty
     private String username;

@@ -53,6 +53,10 @@ public class PublicationServiceImpl implements PublicationService {
         postDto.setContent(post.getContent());
         postDto.setUsername(post.getUsername());
         postDto.setCreatedOn(post.getCreatedOn());
+        postDto.setUpdatedOn(post.getUpdatedOn());
+        postDto.setNb_like(post.getNb_like());
+        postDto.setNb_commenter(post.getNb_commenter());
+        postDto.setNb_partager(post.getNb_partager());
 
         return postDto;
     }
